@@ -8,10 +8,16 @@ This project provides a Spark structured streaming job to sink Kafka to S3.
 
 
 ## Build the jar
-- `git clone`
+- `git clone git@github.com:mbayoudh/kafka2s3.git`
 - `sbt assembly`
 
-## Create the config file
+## Create the config file from the sample
+`cp conf/sample-default.conf connector.conf`
+
+## Edit the config file and set the config 
+`vim connector.conf`
+
+Define the config:
 - `kafka-url`: list of Kafka brokers.
 - `kafka-topic`: the name of the input Kafka topic.
 - `case-class-name`: your customer case class matching the JSON schema of the messages you want to read.
@@ -24,5 +30,10 @@ This project provides a Spark structured streaming job to sink Kafka to S3.
   - `YYYYMM`: monthly
 
 ## Run 
-Set AWS access key and secret
-Set the job argument (path to the config file)
+Set AWS access key and secret Set the job argument (path to the config file).
+- `export AWS_ACCESS_KEY_ID=<your AWS access key>`
+- `export AWS_SECRET_ACCESS_KEY=<your AWS secret access key>`
+
+Run the job with spark-submit (Spark 2.4.4 compiled with hadoop 2.9.2):
+
+`spark-submit --class com.connector.kafka2s3.ConnectorApp target/scala-2.11/kafka2s3-assembly-1.0.0.jar connector.conf`

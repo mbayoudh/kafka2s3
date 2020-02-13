@@ -11,8 +11,8 @@ This project provides a Spark structured streaming job to sink Kafka to S3 (or H
 - `git clone git@github.com:mbayoudh/kafka2s3.git`
 - `sbt assembly`
 
-## Create the config file from the sample
-`cp conf/sample-default.conf connector.conf`
+## Create the config file from the example
+`cp conf/example-default.conf connector.conf`
 
 ## Edit the config file and set the config 
 `vim connector.conf`

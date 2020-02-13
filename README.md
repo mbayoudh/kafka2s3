@@ -8,8 +8,8 @@ This project provides a Spark structured streaming job to sink Kafka to S3.
 
 
 ## Build the jar
-`git clone`
-`sbt assembly`
+- `git clone`
+- `sbt assembly`
 
 ## Create the config file
 - `kafka-url`: list of Kafka brokers.
@@ -19,9 +19,9 @@ This project provides a Spark structured streaming job to sink Kafka to S3.
 - `output-path`: the output path. This could be hdfs folder `fs:///<yourfolder>` or S3 bucket `s3a://<your bucket>`. Notice that for S3 sink, you must use s3a protocol.
 - `output-format`: the format of the output files. You can use any format supported by Spark (parquet, csv, JSON).
 - `partition-columns`: the partitioning of the output files. The recommanded partition is the timestamp one (if you have timestamp in your data). Exalple of the supported time patterns:
-- `YYYYMMddHH`: hourly
-- `YYYYMMdd`: daily
-- `YYYYMM`: monthly
+  - `YYYYMMddHH`: hourly
+  - `YYYYMMdd`: daily
+  - `YYYYMM`: monthly
 
 ## Run 
 Set AWS access key and secret
